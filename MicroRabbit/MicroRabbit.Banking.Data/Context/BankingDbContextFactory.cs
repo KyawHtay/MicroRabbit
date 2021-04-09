@@ -11,7 +11,7 @@ namespace MicroRabbit.Banking.Data.Context
         public BankingDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
+                .SetBasePath(@"E:\test\RabbitMQ\MicroRabbit\MicroRabbit.Banking.Api")
                 .AddJsonFile("appsettings.json")
                 .Build();
 
