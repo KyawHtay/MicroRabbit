@@ -12,7 +12,7 @@ namespace MicroRabbit.Domain.Core.Bus
         Task SendCommand<T>(T command) where T : Command;
         void publis<T>(T @event) where T : Event;
 
-        void Subscribe<T, TH>() 
+        void Subscribe<T, TH>()
                         where T : Event
                         where TH : IEventHandler<T>;
     }
