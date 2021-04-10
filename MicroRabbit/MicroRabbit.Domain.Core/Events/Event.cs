@@ -11,6 +11,6 @@ namespace MicroRabbit.Domain.Core.Events
         protected Event()
         {
             Timestamp = DateTime.Now;
-        }
+        }   
     }
 }
