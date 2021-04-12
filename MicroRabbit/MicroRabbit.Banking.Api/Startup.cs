@@ -9,6 +9,7 @@ using Swashbuckle.Swagger;
 using Microsoft.OpenApi.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using MicroRabbit.Transfer.Data.Context;
 
 namespace MicroRabbit.Banking.Api
 {
@@ -24,7 +25,7 @@ namespace MicroRabbit.Banking.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
+
                 services.AddDbContext<BankingDbContext>(options=> 
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection"));
@@ -40,14 +41,14 @@ namespace MicroRabbit.Banking.Api
                 });
             
                 services.AddMediatR(typeof(Startup));
-                RegisterServices(services);
+                RegisterServices(services,false);
            
 
         }
 
-        private void RegisterServices(IServiceCollection services)
+        private void RegisterServices(IServiceCollection services,bool istransfer)
         {
-            DependencyContainer.RegisterService(services);
+            DependencyContainer.RegisterService(services,istransfer);
         }
 
 
